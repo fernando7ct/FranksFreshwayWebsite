@@ -8,7 +8,7 @@ with app.app_context():
         name="Apple",
         description="Fresh and crispy apple.",
         price=0.99,
-        image_url="https://via.placeholder.com/150",
+        image_url="https://png.pngtree.com/png-vector/20231017/ourmid/pngtree-fresh-apple-fruit-red-png-image_10203073.png",
         deal=False,
         deal_price=None,
     )
@@ -16,7 +16,7 @@ with app.app_context():
         name="Banana",
         description="Sweet organic banana.",
         price=0.59,
-        image_url="https://via.placeholder.com/150",
+        image_url="https://png.pngtree.com/png-clipart/20220716/ourmid/pngtree-banana-yellow-fruit-banana-skewers-png-image_5944324.png",
         deal=True,
         deal_price=0.49,
     )
@@ -27,4 +27,3 @@ with app.app_context():
     print("✅ Seeded the database with example products.")
 
     ## Do not need this file
-    

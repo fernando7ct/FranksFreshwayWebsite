@@ -1,45 +1,26 @@
-import { useEffect, useState } from "react";
-import { getProducts } from "./api/products";
-import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import CatalogPage from "./pages/CatalogPage";
+import WeeklyAdPage from "./pages/WeeklyAdPage";
+import AboutPage from "./pages/AboutPage";
+import DepartmentsPage from "./pages/DepartmentsPage";
+import ContactPage from "./pages/ContactPage";
+import Footer from "./components/Footer";
+
 
 function App() {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    getProducts().then(setProducts);
-  }, []);
-
   return (
-    <div>
-      <h2>Product Catalog</h2>
-      {products.length === 0 && <p>Loading...</p>}
-      <ul>
-        {products.map((product) => (
-          <li
-            key={product.id}
-            style={{ marginBottom: "2rem", listStyle: "none" }}
-          >
-            <img
-              src={product.image_url}
-              alt={product.name}
-              width={80}
-              style={{ verticalAlign: "middle" }}
-            />
-            <span style={{ fontWeight: "bold", marginLeft: "0.5rem" }}>
-              {product.name}
-            </span>{" "}
-            — ${product.price.toFixed(2)}
-            <br />
-            <span>{product.description}</span>
-            {product.deal && (
-              <span style={{ color: "orange", marginLeft: "0.5rem" }}>
-                Weekly Deal: ${product.deal_price}
-              </span>
-            )}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/catalog" element={<CatalogPage />} />
+        <Route path="/weekly" element={<WeeklyAdPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/departments" element={<DepartmentsPage />} />
+        <Route path="/contact" element={<ContactPage />} />
+      </Routes>
+      <Footer />
+    </Router>
   );
 }
 
